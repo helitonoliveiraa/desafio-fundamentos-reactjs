@@ -1,8 +1,25 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 interface ContainerProps {
   size?: 'small' | 'large';
 }
+
+interface NavProps {
+  isLeft?: boolean;
+  isRight?: boolean;
+}
+
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const Container = styled.div<ContainerProps>`
   background: #5636d3;
@@ -15,6 +32,10 @@ export const Container = styled.div<ContainerProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    img {
+      animation: ${appearFromLeft} 2s;
+    }
 
     nav {
       a {
@@ -29,8 +50,30 @@ export const Container = styled.div<ContainerProps>`
 
         &:hover {
           opacity: 0.6;
+          border-bottom: 2px solid #ff872c;
+          padding-bottom: 10px;
         }
       }
     }
   }
+`;
+
+const appear = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+export const Anchor = styled(Link)<NavProps>`
+  animation: ${appear} 2s;
+
+  ${({ isLeft, isRight }) =>
+    (isLeft || isRight) &&
+    css`
+      border-bottom: 2px solid #ff872c;
+      padding-bottom: 10px;
+    `}
 `;

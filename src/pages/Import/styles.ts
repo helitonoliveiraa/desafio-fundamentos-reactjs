@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 export const Container = styled.div`
@@ -8,7 +8,18 @@ export const Container = styled.div`
   padding: 40px 20px;
 `;
 
+const appear = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 export const Title = styled.h1`
+  animation: ${appear} 2s;
+
   font-weight: 500;
   font-size: 36px;
   line-height: 54px;
@@ -17,6 +28,8 @@ export const Title = styled.h1`
 `;
 
 export const ImportFileContainer = styled.section`
+  animation: ${appear} 2s;
+
   background: #fff;
   margin-top: 40px;
   border-radius: 5px;
@@ -24,6 +37,8 @@ export const ImportFileContainer = styled.section`
 `;
 
 export const Footer = styled.section`
+  animation: ${appear} 2s;
+
   margin-top: 36px;
   display: flex;
   align-items: center;
