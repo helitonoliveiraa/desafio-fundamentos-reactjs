@@ -5,11 +5,6 @@ interface ContainerProps {
   size?: 'small' | 'large';
 }
 
-interface NavProps {
-  isLeft?: boolean;
-  isRight?: boolean;
-}
-
 const appearFromLeft = keyframes`
   from {
     opacity: 0;
@@ -22,7 +17,7 @@ const appearFromLeft = keyframes`
 `;
 
 export const Container = styled.div<ContainerProps>`
-  background: #5636d3;
+  background: #12a454;
   padding: 30px 0;
 
   header {
@@ -67,13 +62,6 @@ const appear = keyframes`
   }
 `;
 
-export const Anchor = styled(Link)<NavProps>`
+export const Anchor = styled(Link)`
   animation: ${appear} 2s;
-
-  ${({ isLeft, isRight }) =>
-    (isLeft || isRight) &&
-    css`
-      border-bottom: 2px solid #ff872c;
-      padding-bottom: 10px;
-    `}
 `;

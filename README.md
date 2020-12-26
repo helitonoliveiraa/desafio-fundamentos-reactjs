@@ -10,6 +10,9 @@
   </a>
 </p>
 
+<p align="center">
+  <img src="./.github/gofinancesweb.gif" />
+</p>
 
 ## :memo: **Sobre o desafio**
 
